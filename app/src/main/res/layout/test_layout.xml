@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="15dp"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/book_info_header"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/book_info_header">
+
+        <TextView
+            android:id="@+id/book_info_rating_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/rating_placeholder"
+            android:layout_centerHorizontal="true"
+            tools:text="4.3"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/rating_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="17dp"
+            android:text="out of 5"
+            android:textColor="#eeeeee"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <RatingBar
+        android:id="@+id/book_info_rating"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/book_info_header"
+        android:layout_below="@+id/book_info_header"
+        android:layout_marginTop="8dp"
+        android:numStars="5"
+        android:rating="3.4"
+        android:stepSize="0.1" />
+
+    <TextView
+        android:id="@+id/book_info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/book_info_header"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="sans-serif-medium"
+        tools:text="I Don't Know The Title"
+        android:textColor="@color/colorAccent"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/book_info_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/book_info_title"
+        android:layout_below="@+id/book_info_title"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif-medium"
+        tools:text="I Don't Know The Author"
+        android:textColor="@color/colorAccent"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/book_info_review_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/book_info_rating"
+        android:layout_alignEnd="@+id/book_info_author"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="sans-serif-medium"
+        tools:text="How Many Reviews"
+        android:textColor="@color/colorAccent"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/book_info_genre_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/book_info_rating"
+        android:layout_below="@+id/book_info_review_count"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="90dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Genre"
+        android:textAlignment="viewEnd"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/book_info_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/book_info_genre_header"
+        android:layout_below="@+id/book_info_genre_header"
+        android:layout_marginTop="10dp"
+        tools:text="Fiction"
+        android:textAlignment="viewEnd" />
+
+    <TextView
+        android:id="@+id/book_info_num_pages_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/book_info_review_count"
+        android:layout_alignTop="@+id/book_info_genre_header"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Pages"
+        android:textAlignment="viewEnd"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/book_info_num_pages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/book_info_genre"
+        android:layout_alignEnd="@+id/book_info_num_pages_header"
+        android:layout_marginTop="10dp"
+        tools:text="254"
+        android:textAlignment="viewEnd" />
+
+    <TextView
+        android:id="@+id/book_info_release_date_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/book_info_genre"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Released"
+        android:textAlignment="viewEnd"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/book_info_release_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/book_info_release_date_header"
+        android:layout_below="@+id/book_info_release_date_header"
+        android:layout_marginTop="10dp"
+        tools:text="2018-07-15"
+        android:textAlignment="viewEnd" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/book_info_reviews_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/book_info_num_pages_header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp"
+        tools:clickable="true"
+        android:focusable="true"
+        app:backgroundTint="@color/cardview_light_background"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/book_review_link" />
+
+</RelativeLayout>

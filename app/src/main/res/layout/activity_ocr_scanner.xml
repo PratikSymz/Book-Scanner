@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:background="@drawable/acti_bgd"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:fillViewport="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activities.OCRScannerActivity"
+    tools:showIn="@layout/activity_ocr">
+
+
+    <Button
+        android:id="@+id/barcode"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="179dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableLeft="@drawable/barcode_scanner"
+        android:fontFamily="sans-serif-medium"
+        android:padding="3dp"
+        android:src="@drawable/barcode_scanner"
+        android:text="Barcode"
+        android:theme="@style/PrimaryFlatButton"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+
+    <EditText
+        android:id="@+id/text_value"
+        android:layout_width="352dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:layout_marginLeft="@dimen/small_margin"
+
+        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:background="@drawable/dashed_border"
+        android:minHeight="@dimen/text_value_min_height"
+        android:textAlignment="gravity"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+    <Button
+        android:id="@+id/camera"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="203dp"
+        android:fontFamily="sans-serif-medium"
+        android:theme="@style/PrimaryFlatButton"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableLeft="@drawable/photo_camera"
+        android:text="Camera"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="107dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:fontFamily="sans-serif-medium"
+        android:padding="3dp"
+        android:src="@drawable/search_review"
+        android:text="Search"
+        android:theme="@style/PrimaryFlatButton"
+        android:drawableLeft="@drawable/search_review"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+</RelativeLayout>

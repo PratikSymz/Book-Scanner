@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Book Scanner</string>
+    <string name="API_KEY">c7f1424572ccb869f9675eab4e7f24c837f84e86</string>
+
+    <!-- Error message when there is no internet connectivity [CHAR LIMIT=NONE] -->
+    <string name="no_internet_connection">No internet connection.</string>
+
+    <!-- Messages for user -->
+    <string name="message_no_internet">No internet connection</string>
+    <string name="message_no_data">No data found</string>
+    <string name="message_fetching">Fetching data… Please wait</string>
+    <string name="no_data_available">No Data Available</string>
+
+    <!-- Barcode Activity -->
+    <string name="choice">What would you like?</string>
+    <string name="rescan">Rescan</string>
+    <string name="search">Search</string>
+
+    <!-- OCR -->
+    <string name="flash_required">Would you like to use Flash?</string>
+
+</resources>

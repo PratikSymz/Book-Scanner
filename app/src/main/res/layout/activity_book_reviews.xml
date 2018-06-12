@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sliding_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    sothree:umanoDragView="@+id/dragView"
+    sothree:umanoOverlay="true"
+    sothree:umanoPanelHeight="50dp"
+    sothree:umanoParallaxOffset="100dp"
+    sothree:umanoScrollableView="@+id/list"
+    sothree:umanoShadowHeight="4dp">
+
+    <!-- MAIN CONTENT -->
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="#F7F7F7">-->
+
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/book_reviews_recycler_view"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:paddingBottom="50dp"-->
+    <!--android:background="@android:color/white"/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/message_text_view"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/progress_bar"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:layout_margin="5dp" />-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/icon_no_internet"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:src="@drawable/icon_no_internet_connection"-->
+    <!--android:visibility="invisible" />-->
+
+    <!--<com.github.ybq.android.spinkit.SpinKitView-->
+    <!--android:id="@+id/progress_bar"-->
+    <!--style="@style/SpinKitView.CubeGrid"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--sothree:SpinKit_Color="#00B0FF" />-->
+
+    <!--</RelativeLayout>-->
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+            android:id="@+id/review_count_excell"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="26dp"
+            android:animateLayoutChanges="true"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/text_excell"
+            app:layout_constraintEnd_toStartOf="@+id/text_excel_value"
+            app:layout_constraintStart_toEndOf="@+id/text_excell"
+            app:layout_constraintTop_toTopOf="@+id/text_excell"
+            app:rcBackgroundColor="#ECECEC"
+            app:rcMax="100"
+            app:rcProgress="73"
+            app:rcProgressColor="@color/colorAccent"
+            app:rcRadius="8dp" />
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/custom_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RelativeLayout
+            android:id="@+id/review_box"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/review_box_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/book_rating_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/nunito_extra_bold"
+                android:text="4.3"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/rating_text_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="14dp"
+                android:fontFamily="@font/nunito_extra_bold"
+                android:text="out of 5"
+                android:textColor="#ECECEC"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RatingBar
+            android:id="@+id/book_rating_bar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:numStars="5"
+            android:rating="4.3"
+            android:stepSize="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/review_box" />
+
+        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+            android:id="@+id/review_count_very_good"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_very_good"
+            app:layout_constraintEnd_toEndOf="@+id/review_count_excell"
+            app:layout_constraintStart_toStartOf="@+id/review_count_excell"
+            app:layout_constraintTop_toTopOf="@+id/text_very_good"
+            app:rcBackgroundColor="#ECECEC"
+            app:rcMax="100"
+            app:rcProgress="35"
+            app:rcProgressColor="@color/colorAccent"
+            app:rcRadius="8dp" />
+
+        <TextView
+            android:id="@+id/text_excell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/nunito_semi_bold"
+            android:text="Excellent"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#CC000000"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/review_count_excell"
+            app:layout_constraintStart_toEndOf="@+id/review_box"
+            app:layout_constraintTop_toTopOf="@+id/review_box" />
+
+        <TextView
+            android:id="@+id/text_excel_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/nunito_extra_bold"
+            android:text="2379"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/review_count_excell"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/review_count_excell" />
+
+        <TextView
+            android:id="@+id/text_very_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/nunito_semi_bold"
+            android:text="Very Good"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#CC000000"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/text_excell"
+            app:layout_constraintTop_toBottomOf="@+id/text_excell" />
+
+        <TextView
+            android:id="@+id/text_very_good_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/nunito_extra_bold"
+            android:text="512"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/review_count_very_good"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/review_count_very_good"
+            app:layout_constraintTop_toTopOf="@+id/review_count_very_good" />
+
+        <TextView
+            android:id="@+id/text_average"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/nunito_semi_bold"
+            android:text="Average"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#CC000000"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/text_very_good"
+            app:layout_constraintTop_toBottomOf="@+id/text_very_good" />
+
+        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+            android:id="@+id/review_count_average"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_average"
+            app:layout_constraintEnd_toEndOf="@+id/review_count_very_good"
+            app:layout_constraintStart_toStartOf="@+id/review_count_very_good"
+            app:layout_constraintTop_toTopOf="@+id/text_average"
+            app:rcBackgroundColor="#ECECEC"
+            app:rcMax="100"
+            app:rcProgress="24"
+            app:rcProgressColor="@color/colorAccent"
+            app:rcRadius="8dp" />
+
+        <TextView
+            android:id="@+id/text_average_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/nunito_extra_bold"
+            android:text="132"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/review_count_average"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/review_count_average"
+            app:layout_constraintTop_toTopOf="@+id/review_count_average" />
+
+        <TextView
+            android:id="@+id/text_poor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/nunito_semi_bold"
+            android:text="Poor"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#CC000000"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/text_average"
+            app:layout_constraintTop_toBottomOf="@+id/text_average" />
+
+        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+            android:id="@+id/review_count_poor"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_poor"
+            app:layout_constraintEnd_toEndOf="@+id/review_count_average"
+            app:layout_constraintStart_toStartOf="@+id/review_count_average"
+            app:layout_constraintTop_toTopOf="@+id/text_poor"
+            app:rcBackgroundColor="#ECECEC"
+            app:rcMax="100"
+            app:rcProgress="15"
+            app:rcProgressColor="@color/colorAccent"
+            app:rcRadius="8dp" />
+
+        <TextView
+            android:id="@+id/text_poor_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/nunito_extra_bold"
+            android:text="15"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/review_count_poor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/review_count_poor"
+            app:layout_constraintTop_toTopOf="@+id/review_count_poor" />
+
+        <TextView
+            android:id="@+id/text_terrible"
+            android:layout_width="50dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/nunito_semi_bold"
+            android:text="Terrible"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#CC000000"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/text_poor"
+            app:layout_constraintTop_toBottomOf="@+id/text_poor" />
+
+        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+            android:id="@+id/review_count_terrible"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_terrible"
+            app:layout_constraintEnd_toEndOf="@+id/review_count_poor"
+            app:layout_constraintStart_toStartOf="@+id/review_count_poor"
+            app:layout_constraintTop_toTopOf="@+id/text_terrible"
+            app:rcBackgroundColor="#ECECEC"
+            app:rcMax="100"
+            app:rcProgress="4"
+            app:rcProgressColor="@color/colorAccent"
+            app:rcRadius="8dp" />
+
+        <TextView
+            android:id="@+id/text_terrible_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/nunito_extra_bold"
+            android:text="4"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/review_count_terrible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/review_count_terrible"
+            app:layout_constraintTop_toTopOf="@+id/review_count_terrible" />
+
+        <TextView
+            android:id="@+id/separator_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/nunito_semi_bold"
+            android:text="|"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="@+id/button"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintTop_toTopOf="@+id/button" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="24dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:fontFamily="@font/nunito_extra_bold"
+            android:foreground="@android:color/transparent"
+            android:text="Popularity"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#CC000000"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/review_count_terrible" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="14dp"
+            android:layout_marginTop="4dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:fontFamily="@font/nunito_extra_bold"
+            android:foreground="@android:color/transparent"
+            android:text="Most Recent"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#00b8ff"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/separator_view"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintTop_toTopOf="@+id/separator_view" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/book_reviews_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="24dp"
+            android:paddingBottom="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/icon_no_internet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/icon_no_internet_connection"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.527" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/progress_bar"
+            style="@style/SpinKitView.CubeGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="332dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            sothree:SpinKit_Color="#00B0FF" />
+
+        <TextView
+            android:id="@+id/message_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Message"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_bar"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <!-- SLIDING LAYOUT -->
+
+    <LinearLayout
+        android:id="@+id/dragView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <!-- Layout for Display of "Extra Info." Title -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/text_more_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="More Info."
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#00B0FF" />
+
+        </RelativeLayout>
+
+        <!-- Layout for Book Info. -->
+        <include layout="@layout/test_layout" />
+
+    </LinearLayout>
+
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>

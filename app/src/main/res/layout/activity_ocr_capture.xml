@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true">
+
+    <com.pratiksymz.android.bookscanner.ocr_reader.camera_source.CameraSourcePreview
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.pratiksymz.android.bookscanner.ocr_reader.camera_source.GraphicOverlay
+        android:id="@+id/graphicOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>
